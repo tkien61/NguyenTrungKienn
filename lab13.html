@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai lab 13 - An hien noi dung bang jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .khoi-noidung {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 400px;
+            margin: 20px auto;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .khoi-noidung img {
+            width: 20%;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .nhom-nut {
+            text-align: center;
+            margin: 15px;
+        }
+
+        button {
+            padding: 8px 20px;
+            margin: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #btnAn {
+            background-color: #e74c3c;
+        }
+
+        #btnHien {
+            background-color: #2ecc71;
+        }
+
+        #btnToggle {
+            background-color: #3498db;
+        }
+
+        #btnKiemTra {
+            background-color: #9b59b6;
+        }
+
+        #thongbao {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Bài lab 13: Thao tác ẩn và hiện nội dung bằng jQuery</h2>
+
+    <div class="khoi-noidung" id="noiDung">
+        <p><strong>Đây là khối nội dung cần ẩn/hiện</strong></p>
+        <p>jQuery giúp thao tác DOM dễ hơn JavaScript thuần rất nhiều!</p>
+        <img src="https://tse2.mm.bing.net/th/id/OIP.QWMO-Lz_sLnffF-eSTv8twHaHa?pid=Api&P=0&h=180" alt="jQuery Logo">
+    </div>
+
+    <div class="nhom-nut">
+        <button id="btnAn">Ẩn</button>
+        <button id="btnHien">Hiện</button>
+        <button id="btnToggle">Toggle</button>
+        <button id="btnKiemTra">Kiểm tra trạng thái</button>
+    </div>
+
+    <p id="thongbao">Trạng thái: Đang hiện</p>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btnAn").click(function () {
+                $("#noiDung").hide(800);
+                $("#thongbao").text("Trạng thái: Đang ẩn");
+            });
+
+            $("#btnHien").click(function () {
+                $("#noiDung").show(800);
+                $("#thongbao").text("Trạng thái: Đang hiện");
+            });
+
+            $("#btnToggle").click(function () {
+                $("#noiDung").toggle(800);
+
+                if ($("#noiDung").is(":visible")) {
+                    $("#thongbao").text("Trạng thái: Đang hiện");
+                } else {$("#thongbao").text("Trạng thái: Đang ẩn");
+                }
+            });
+
+            $("#btnKiemTra").click(function () {
+                if ($("#noiDung").is(":visible")) {
+                    alert("Nội dung đang HIỆN trên trang!");
+                } else {
+                    alert("Nội dung đang bị ẨN!");
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>
